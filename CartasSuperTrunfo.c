@@ -1,115 +1,114 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-
-#define MAX_CARTAS 100 // Define o tamanho máximo do array de cartas
-
-// Estrutura para representar uma carta
-typedef struct {
-    char Codigo[50];
-    char Pais[100];
-    char Cidade[100];
-    double Populacao;
-    double Area;
-    double PIB;
-    int Pontos;
-} Carta;
 
 int main() {
-    char Codigo[50];
-    char Pais[100];
-    char Cidade[100];
-    double Populacao;
-    double Area;
-    double PIB;
-    int Pontos;
+
+    // Variáveis para a primeira carta
+    char Estado1;
+    char CodigoDaCarta1[3];
+    char Cidade1[100];
+    int Populacao1;
+    float Area1;
+    float PIB1;
+    int PontosTuristicos1;
+
+    // Lê os dados da primeira carta
+    printf("Insira uma letra de A a H para o estado da primeira carta: \n");
+    scanf(" %c", &Estado1);
+    printf("Estado: %c\n", Estado1);
     
-    Carta cartas[MAX_CARTAS]; // Array para armazenar as cartas
-    int contadorCartas = 0; // Contador de cartas cadastradas
+    // Lê os codigos da carta
+    printf("Insira o Codigo da Carta com numeros de 01 a 04: \n");
+    scanf(" %s", CodigoDaCarta1);
+    printf("Codigo da Carta: %s\n", CodigoDaCarta1);
+    
+    // Lê o nome da cidade
+    printf("Insira o nome da Cidade: ");
+    getchar(); // Consome o caractere de nova linha
+    fgets(Cidade1, sizeof(Cidade1), stdin);
+    printf("Cidade: %s\n", Cidade1);
 
-    // Loop para cadastrar as cartas
-    while (1) {
-        char entrada[100];
+    // Lê a populacao
+    printf("Insira a Populacao da cidade selecionada sem pontuacao: \n");
+    scanf(" %d", &Populacao1);
+    printf("Populacao: %d\n", Populacao1);
 
-        // Comando para inserir pais//
-        printf("Em qual pais fica a cidade que deseja selecionar?:\n");
-        fgets(Pais, sizeof(Pais), stdin);
-        Pais[strcspn(Pais, "\n")] = 0;
-        printf("Pais: %s\n", Pais);
+    // Lê a area
+    printf("Qual e a area da Cidade selecionada em mk²?: \n");
+    scanf(" %f", &Area1);
+    printf("Area: %.2f\n", Area1);
+    
+    // Lê o PIB
+    printf("Qual o PIB da Cidade selecionada?: \n");
+    scanf(" %f", &PIB1);
+    printf("PIB: %.2f\n", PIB1);
 
-        // Comando para inserir cidade//
-        printf("Insira qual cidade escolheu:\n");
-        fgets(Cidade, sizeof(Cidade), stdin);
-        Cidade[strcspn(Cidade, "\n")] = 0;
-        printf("Cidade escolhida: %s\n", Cidade);
+    // Lê os pontos turisticos
+    printf("Quantos pontos turisticos tem a Cidade que voce selecionou?: \n");
+    scanf(" %d", &PontosTuristicos1);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos1);
 
-        // Comando para inserir código//
-        printf("Qual o Codigo da carta com a sigla e DDD?:\n");
-        scanf(" %[^\n]", Codigo); // Lê a string com espaços
-        printf("Codigo: %s\n", Codigo);
-        getchar(); // Limpa o buffer de entrada
+    // Variáveis para a segunda carta
+    char Estado2;
+    char CodigoDaCarta2[10];
+    char Cidade2[20];
+    int Populacao2;
+    float Area2;
+    float PIB2;
+    int PontosTuristicos2;
 
-        // Comando para inserir população//
-        printf("Qual a populacao da Cidade escolhida?:\n");
-        scanf(" %lf", &Populacao);
-        printf("Populacao: %lf\n", Populacao);
+     // Lê os dados da segunda carta
+    printf("Insira uma letra de A a H para o estado da segunda carta: \n");
+    scanf(" %c", &Estado2);
+    printf("Estado: %c\n", Estado2);
 
-        // Comando para inserir Area//
-        printf("Qual a area da cidade escolhida em km?:\n");
-        scanf("%lf", &Area);
-        printf("area: %.2lf km²\n", Area);
+    printf("Insira o Codigo da Carta com numeros de 01 a 04: \n");
+    scanf(" %s", CodigoDaCarta2);
+    printf("Codigo da Carta: %s\n", CodigoDaCarta2);
 
-        // Comando para inserir PIB//
-        printf("Qual o PIB da cidade que escolheu?:\n");
-        scanf(" %lf", &PIB);
-        printf("PBI: %lf\n", PIB);
-        getchar();
-        
-        // Comando para inserir pontos turísticos//
-        printf("Quantos pontos turisticos tem a cidade selecionada?:\n");
-        fgets(entrada, 100, stdin);
-        entrada[strcspn(entrada, "\n")] = 0;
-        Pontos = atoi(entrada);
-        printf("Pontos turisticos: %d\n", Pontos);
-       
-        
-        // Armazena a carta no array
-        strcpy(cartas[contadorCartas].Codigo, Codigo);
-        strcpy(cartas[contadorCartas].Pais, Pais);
-        strcpy(cartas[contadorCartas].Cidade, Cidade);
-        cartas[contadorCartas].Populacao = Populacao;
-        cartas[contadorCartas].Area = Area;
-        cartas[contadorCartas].PIB = PIB;
-        cartas[contadorCartas].Pontos = Pontos;
+    printf("Insira o nome da Cidade: ");
+    getchar();
+    fgets(Cidade2, sizeof(Cidade2), stdin);
+    printf("Cidade: %s\n", Cidade2);
 
-        contadorCartas++; // Incrementa o contador de cartas
+    printf("Insira a Populacao da cidade selecionada sem pontuacao: \n");
+    scanf(" %d", &Populacao2);
+    printf("Populacao: %d\n", Populacao2);
 
-        printf("Carta cadastrada com sucesso!\n");
-        printf("Total de cartas cadastradas: %d\n", contadorCartas);
+    printf("Qual e a area da Cidade selecionada em mk²?: \n");
+    scanf(" %f", &Area2);
+    printf("Area: %.2f\n", Area2);
 
-        // Pergunta se o usuário deseja cadastrar mais cartas
-        printf("Deseja cadastrar mais cartas? (s/n)\n");
-        fgets(entrada, 100, stdin);
-        entrada[strcspn(entrada, "\n")] = 0;
-        if (entrada[0] != 's') {
-            break; // Sai do loop se o usuário digitar 'n'
-        }
-    }
+    printf("Qual o PIB da Cidade selecionada?: \n");
+    scanf(" %f", &PIB2);
+    printf("PIB: %.2f\n", PIB2);
 
-    // Imprime as cartas cadastradas
-    printf("\nCartas Cadastradas:\n");
-    for (int i = 0; i < contadorCartas; i++) {
-        printf("Carta %d:\n", i + 1);
-        printf("Codigo: %s\n", cartas[i].Codigo);
-        printf("Pais: %s\n", cartas[i].Pais);
-        printf("Cidade: %s\n", cartas[i].Cidade);
-        printf("Populacao: %.2lf\n", cartas[i].Populacao);
-        printf("Area: %.2lf km²\n", cartas[i].Area);
-        printf("PIB: %.2lf\n", cartas[i].PIB);
-        printf("Pontos turísticos: %d\n\n", cartas[i].Pontos);
-    }
+    printf("Quantos pontos turisticos tem a Cidade que voce selecionou?: \n");
+    scanf(" %d", &PontosTuristicos2);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos2);
+
+   // Imprime os dados da primeira carta
+    printf("\nDados da primeira carta:\n");
+    printf("Estado: %c\n", Estado1);
+    printf("Codigo da Carta: %s\n", CodigoDaCarta1);
+    printf("Cidade: %s", Cidade1);
+    printf("Populacao: %d\n", Populacao1);
+    printf("Area: %.2f\n", Area1);
+    printf("PIB: %.2f\n", PIB1);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos1);
+
+    // Imprime os dados da segunda carta
+    printf("\nDados da segunda carta:\n");
+    printf("Codigo da Carta: %c%s\n", Estado1, CodigoDaCarta1);
+    printf("Cidade: %s", Cidade2);
+    printf("Populacao: %d\n", Populacao2);
+    printf("Area: %.2f\n", Area2);
+    printf("PIB: %.2f\n", PIB2);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos2);
+
+    printf("\nSuas cartas foram cadastardas com sucesso!\n");
 
     return 0;
+
+
 }
-
-
